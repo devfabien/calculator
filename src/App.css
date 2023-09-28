@@ -1,0 +1,6 @@
+.zero{
+    grid-column: 3/1;
+}
+.operator{
+    background-color: darkorange;
+}

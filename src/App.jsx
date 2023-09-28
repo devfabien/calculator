@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-
+import ButtonBox from "./components/buttonBox";
+import Button from "./components/button";
+import Screen from "./components/screen";
+import CalcProvider from "./context/calcContext";
 function App() {
+  const BTN_VALUES=[
+    ["AC","+/-","%","/"],
+    [7,8,9,"x"],
+    [4,5,6,"-"],
+    [1,2,3,"+"],
+    [0,".","="],
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <CalcProvider>
+    <div className="flex flex-col h-screen justify-center items-center">
+    <Screen/>  
+      <div className='flex flex-col w-1/3'>  
+<ButtonBox>
+  {BTN_VALUES.flat().map((btn,i)=><Button key={i} value={btn}/>)}
+</ButtonBox>
+</div>
+</div>
+</CalcProvider>
+   </>
+
+
+  
   );
+  
 }
 
 export default App;
